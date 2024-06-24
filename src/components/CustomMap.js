@@ -17,7 +17,7 @@ const CustomMap = () => {
   }, [placeDetail]);
 
   return (
-    <LoadScript googleMapsApiKey="AIzaSyB53RmwZnnc1PpbUkUhruogo6Em_u7ytuw">
+    <LoadScript googleMapsApiKey="">
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={focusPosition}

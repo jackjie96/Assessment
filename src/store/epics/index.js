@@ -10,7 +10,7 @@ import {
 import { combineEpics } from "redux-observable";
 
 const proxy = "https://cors-anywhere.herokuapp.com/";
-const apiKey = "AIzaSyB53RmwZnnc1PpbUkUhruogo6Em_u7ytuw";
+const apiKey = "";
 
 const fetchPlacesEpic = (action$) =>
   action$.pipe(
