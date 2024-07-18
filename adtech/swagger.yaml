@@ -1,0 +1,254 @@
+openapi: 3.0.3
+info:
+  title: AdTech
+  version: 1.0.0
+  contact: {}
+servers:
+  - url: http://localhost:3000
+paths:
+  /customers:
+    get:
+      tags:
+        - Customer
+      summary: customer listing
+      description: customer listing
+      operationId: customerListing
+      responses:
+        "200":
+          description: ""
+  /customers/{id}:
+    get:
+      tags:
+        - Customer
+      summary: customer by id
+      description: customer by id
+      operationId: customerById
+      responses:
+        "200":
+          description: ""
+    put:
+      tags:
+        - Customer
+      summary: edit customer by id
+      description: edit customer by id
+      operationId: editCustomerById
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: ""
+            example:
+              name: ""
+      responses:
+        "200":
+          description: ""
+    delete:
+      tags:
+        - Customer
+      summary: delete customer by id
+      description: delete customer by id
+      operationId: deleteCustomerById
+      responses:
+        "200":
+          description: ""
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: "6"
+  /customers/:
+    post:
+      tags:
+        - Customer
+      summary: create customer
+      description: create customer
+      operationId: createCustomer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: ""
+                name:
+                  type: string
+                  example: ""
+            example:
+              email: ""
+              name: ""
+      responses:
+        "200":
+          description: ""
+  /stream-types/:
+    get:
+      tags:
+        - Stream Type
+      summary: stream type listing
+      description: stream type listing
+      operationId: streamTypeListing
+      responses:
+        "200":
+          description: ""
+    post:
+      tags:
+        - Stream Type
+      summary: create stream type
+      description: create stream type
+      operationId: createStreamType
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: ""
+            example:
+              name: ""
+      responses:
+        "200":
+          description: ""
+  /stream-types/{id}:
+    get:
+      tags:
+        - Stream Type
+      summary: stream type by id
+      description: stream type by id
+      operationId: streamTypeById
+      responses:
+        "200":
+          description: ""
+    put:
+      tags:
+        - Stream Type
+      summary: edit stream type by id
+      description: edit stream type by id
+      operationId: editStreamTypeById
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: ""
+            example:
+              name: ""
+      responses:
+        "200":
+          description: ""
+    delete:
+      tags:
+        - Stream Type
+      summary: delete stream type by id
+      description: delete stream type by id
+      operationId: deleteStreamTypeById
+      responses:
+        "200":
+          description: ""
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: "5"
+  /campaign-bookings:
+    get:
+      tags:
+        - Booking Campaign
+      summary: booking listing
+      description: booking listing
+      operationId: bookingListing
+      responses:
+        "200":
+          description: ""
+  /campaign-bookings/customers/{id}:
+    get:
+      tags:
+        - Booking Campaign
+      summary: campaign booking by customer id
+      description: campaign booking by customer id
+      operationId: campaignBookingByCustomerId
+      responses:
+        "200":
+          description: ""
+    post:
+      tags:
+        - Booking Campaign
+      summary: create booking campaign by customer id
+      description: create booking campaign by customer id
+      operationId: createBookingCampaignByCustomerId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                streamTypes:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      budget:
+                        type: number
+                        example: 20000
+                      typeId:
+                        type: number
+                        example: 1
+                  example:
+                    - budget: 20000
+                      typeId: 1
+                    - budget: 10000
+                      typeId: 2
+                    - budget: 5000
+                      typeId: 3
+            example:
+              streamTypes:
+                - budget: 20000
+                  typeId: 1
+                - budget: 10000
+                  typeId: 2
+                - budget: 5000
+                  typeId: 3
+      responses:
+        "200":
+          description: ""
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: "6"
+  /campaign-bookings/customers/{id}/campaigns:
+    post:
+      tags:
+        - Booking Campaign
+      summary: run campaign
+      description: run campaign
+      operationId: runCampaign
+      responses:
+        "200":
+          description: ""
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: "6"
+tags:
+  - name: Customer
+  - name: Stream Type
+  - name: Booking Campaign
